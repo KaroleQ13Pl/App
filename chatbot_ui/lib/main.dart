@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'chat_screen.dart'; // Importujemy nasz nowy ekran
+import 'screens/home_screen.dart'; // Importujemy nasz nowy ekran
+import 'theme/theme.dart'; // Importujemy motyw aplikacji
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'n8n Chatbot', // Tytuł aplikacji
       debugShowCheckedModeBanner: false, // Usuwa baner "Debug"
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const ChatScreen(), // Nasz ekran startowy
+      theme: AppTheme.lightTheme, // Ustawiamy motyw jasny
+      //darkTheme: AppTheme.darkTheme, // Ustawiamy motyw ciemny
+      themeMode: ThemeMode
+          .system, // Ustawiamy motyw na systemowy (jasny/ciemny w zależności od ustawień urządzenia
+      home: const HomeScreen(), // Nasz ekran startowy
     );
   }
 }
